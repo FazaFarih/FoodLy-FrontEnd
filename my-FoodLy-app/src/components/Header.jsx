@@ -1,10 +1,16 @@
+import Logo from "../assets/LogoFoodly.svg";
+import HomeIcon from "../assets/HomeIcon.svg"
+import SearchIcon from "../assets/SearchIcon.svg"
+import FavoritIcon from "../assets/FavoritIcon.svg"
+import LogoutIcon from "../assets/LogoutIcon.svg"
 
 
 export default function Header(){
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg bg-white shadow-sm">
       <div className="container">
-        <a className="navbar-brand" href="#">MyWebsite</a>
+        <img src={Logo} alt="Logo" />
+        <a className="navbar-brand fw-bold ps-2 brand-color" href="#">Foodly</a>
 
         <button 
           className="navbar-toggler" 
@@ -16,16 +22,39 @@ export default function Header(){
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto gap-4">
             <li className="nav-item">
-              <a className="nav-link" href="#">Home</a>
+              <a className="nav-link fw-medium d-flex align-items-center gap-2" href="#">
+                <img src={HomeIcon} alt="Home" />
+                Home
+              </a>
             </li>
+
             <li className="nav-item">
-              <a className="nav-link" href="#">About</a>
+              <a className="nav-link fw-medium d-flex align-items-center gap-2" href="#">
+                <img src={SearchIcon} alt="SearchIcon" />
+                Cari
+              </a>
             </li>
+
             <li className="nav-item">
-              <a className="nav-link" href="#">Contact</a>
+              <a className="nav-link fw-medium d-flex align-items-center gap-2" href="#">
+                <img src={FavoritIcon} alt="Favorit" />
+                Favorit
+              </a>
             </li>
+
+            <li className="nav-item">
+              <a className="btn btn-custom" href="#">+ Buat Resep</a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link fw-medium d-flex align-items-center gap-2" href="#">
+                <img src={LogoutIcon} alt="Logout" />
+                Keluar
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>

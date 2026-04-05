@@ -1,11 +1,10 @@
 import Header from "./components/Header"
-import TestPage from "./pages/testPage"
+import "./CustomColor/CustomColor.css";
 
 function App() {
   return(
     <>
       <Header></Header>
-      <TestPage></TestPage>
     </>
     
   )
