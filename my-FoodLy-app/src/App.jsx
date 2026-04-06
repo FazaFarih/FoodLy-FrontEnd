@@ -1,10 +1,11 @@
 import Header from "./components/Header"
-import "./CustomColor/CustomColor.css";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return(
     <>
       <Header></Header>
+      <HomePage></HomePage>
     </>
     
   )
