@@ -1,7 +1,13 @@
 import WelcomingIcon from "../assets/WelcomingIcon.svg"
 import FoodCard from "../components/FoodCard"
+import { useEffect, useState } from "react"
+import { getRecipes } from "../services/RecipeService"
+import { useRecipe } from "../hooks/useRecipe"
 
 export default function HomePage() {
+
+  const {recipeTerbaru, formatDate} = useRecipe()
+
   return(
     <>
       <div className="bg-custom-color min-vh-100">
@@ -54,25 +60,24 @@ export default function HomePage() {
             </div>
 
             <div className="row mt-0 gy-3">
-              <div className="col-4">
-                <FoodCard></FoodCard>
-              </div>
+              {
+                recipeTerbaru.map(recipe => (
+                  <div className="col-4">
 
-              <div className="col-4">
-                <FoodCard></FoodCard>
-              </div>
+                    <FoodCard
+                      name={recipe.title}
+                      userName={recipe.user.name}
+                      calCount={recipe.calories}
+                      likeCount={recipe.likes_count}
+                      date={formatDate(recipe.created_at)}
 
-              <div className="col-4">
-                <FoodCard></FoodCard>
-              </div>
+                    />
+                  </div>
+                ))
+              }
 
-              <div className="col-4">
-                <FoodCard></FoodCard>
-              </div>
+              
 
-              <div className="col-4">
-                <FoodCard></FoodCard>
-              </div>
             </div>
           </div>
         </div>
