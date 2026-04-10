@@ -13,3 +13,8 @@ export const searchRecipes = async (name) => {
   })
   return response.data.data
 }
+
+export const getTopRecipes = async () => {
+  const response = await FoodlyApiClient.get("/recipes/top/best")
+  return response.data
+}

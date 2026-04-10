@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getRecipes } from "../services/RecipeService"
 import { searchRecipes } from "../services/RecipeService"
+import { getTopRecipes } from "../services/RecipeService"
 
 export function useRecipe(){
 
@@ -16,6 +17,8 @@ export function useRecipe(){
 
   const [recipeTerbaru, setRecipeTerbaru] = useState([])
   const [recipeSearchResult, setRecipeSearchResult] = useState([])
+  const [topRecipes, setTopRecipes] = useState([])
+
 
   useEffect(() => {
     async function fetchData() {
@@ -39,5 +42,18 @@ export function useRecipe(){
     }
   }
 
-  return {recipeTerbaru, formatDate, recipeSearchResult, searchForRecipes}
+  async function getTop5Recipes() {
+    try {
+      const data = await getTopRecipes()
+      setTopRecipes(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    getTop5Recipes()
+  }, [])
+
+  return {recipeTerbaru, formatDate, recipeSearchResult, searchForRecipes, topRecipes}
 }
